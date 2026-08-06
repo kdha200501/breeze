@@ -6121,7 +6121,7 @@ bool Style::drawMenuItemControl(const QStyleOption *option, QPainter *painter, c
         const ArrowOrientation orientation(reverseLayout ? ArrowLeft : ArrowRight);
 
         // color
-        const QColor arrowColor = _helper->arrowColor(palette, sunken ? QPalette::HighlightedText : QPalette::WindowText);
+        const QColor arrowColor = _helper->arrowColor(palette, (sunken || selected) ? QPalette::HighlightedText : QPalette::WindowText);
 
         // render
         _helper->renderArrow(painter, arrowRect, arrowColor, orientation);
@@ -6139,7 +6139,7 @@ bool Style::drawMenuItemControl(const QStyleOption *option, QPainter *painter, c
         painter->setFont(menuItemOption->font);
 
         // color role
-        QPalette::ColorRole role = sunken ? QPalette::HighlightedText : QPalette::WindowText;
+        QPalette::ColorRole role = (sunken || selected) ? QPalette::HighlightedText : QPalette::WindowText;
 
         // locate accelerator and render
         const int tabPosition(text.indexOf(QLatin1Char('\t')));
