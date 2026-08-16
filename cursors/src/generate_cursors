@@ -8,6 +8,7 @@ import shutil
 import json
 from pathlib import Path
 from PySide6.QtSvg import QSvgRenderer
+from PySide6.QtCore import QPointF
 
 # Displace the hotspot to the right and down by 1/100th of a pixel, then
 # floor. So if by some float error the hotspot is at 4.995, it will be
@@ -47,7 +48,15 @@ for svg_file in svg_files:
     processed_svgs.update(frames)
 
     svg = QSvgRenderer(str(svg_file))
-    hotspot = svg.transformForElement("hotspot").map(svg.boundsOnElement("hotspot")).boundingRect().topLeft()
+    hotspot_svg = svg.transformForElement("hotspot").map(svg.boundsOnElement("hotspot")).boundingRect().topLeft()
+    # Normalize from SVG user-coordinate space to rendered pixel space.
+    # Standard Breeze SVGs use viewBox="0 0 32 32" so this is a no-op for them,
+    # but SVGs with a different viewBox (e.g. a larger design canvas) require it.
+    vb = svg.viewBoxF()
+    px = svg.defaultSize()
+    hotspot_x_px = (hotspot_svg.x() - vb.x()) / vb.width() * px.width()
+    hotspot_y_px = (hotspot_svg.y() - vb.y()) / vb.height() * px.height()
+    hotspot = QPointF(hotspot_x_px, hotspot_y_px)
 
     # Generate xcursor
     xcursor_config_path = pixmap_dir / "config" / f"{basename}.config"
@@ -78,7 +87,8 @@ for svg_file in svg_files:
             json.dump([{
                     "filename": filename,
                     "hotspot_x": hotspot_x,
-                    "hotspot_y": hotspot_y
+                    "hotspot_y": hotspot_y,
+                    "nominal_size": nominal_size
                 }],
                 metadata)
         else:
