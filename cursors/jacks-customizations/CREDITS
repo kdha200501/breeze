@@ -1,0 +1,14 @@
+The following SVG files in src/svg/ were copied unmodified from the upstream
+Breeze cursor theme (https://invent.kde.org/plasma/breeze) and are the work
+of their original authors:
+
+    center_ptr.svg
+    color-picker.svg
+    draft.svg
+    pencil.svg
+    pirate.svg
+    wayland-cursor.svg
+    x-cursor.svg
+
+All other SVG files in src/svg/ are original works by the maintainer of this
+collection (jacks-customizations).

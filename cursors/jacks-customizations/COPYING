@@ -1,0 +1,30 @@
+jacks-customizations Cursor Theme
+Copyright (C) 2014 Uri Herrera <kaisergreymon99@gmail.com> and others (for
+  the Breeze-derived files listed in CREDITS)
+Copyright (C) the jacks-customizations maintainer (for all remaining files)
+
+This library is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License as published by the
+Free Software Foundation; either version 3 of the License, or (at your
+option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more
+details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this library.  If not, see <https://www.gnu.org/licenses/>.
+
+-------------------------------------------------------------------------------
+
+Seven SVG source files (listed in CREDITS) were copied unmodified from the
+upstream Breeze cursor theme and remain the work of their original authors
+(Uri Herrera and others), licensed under LGPL v3 as stated above.
+
+All other SVG files are original creations by the maintainer of this
+collection and are likewise released under LGPL v3.
+
+The full text of the GNU Lesser General Public License version 3 can be
+found at:  https://www.gnu.org/licenses/lgpl-3.0.html
+or in the COPYING-ICONS file of the upstream Breeze theme.
